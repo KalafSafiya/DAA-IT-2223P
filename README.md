@@ -4,9 +4,9 @@ Day 01
 
 Scalar Operations
 -----------------
-`a = 5; `
-`b = 3;` 
-`c = 8; `
+```a = 5;```
+```b = 3;```
+```c = 8;```
 
 a + b;  % Addition
 a - b;  % Subtraction
