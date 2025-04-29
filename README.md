@@ -1,110 +1,111 @@
 ```
 DAA Practical 
-Day 02
+Day 04
 
-1. For Loop (Basic Loop)
-------------------------
+1. GPA Calculation using if-else
+---------------------------------
 
-for x = 1:10
-    disp(x)
-end
-
-2. For Loop with Step Size
----------------------------
-
-for y = 1:2:15
-    disp(y)
-end
-
-3. Sum of Numbers from 1 to 10
--------------------------------
-sum = 0;
-for i = 1:10
-    sum = sum + i;
-end
-disp("sum: " + sum)
-
-
-4. Factorial Calculation
--------------------------
-
-factorial = 1;
-num = 5;
-for i = 1:1:5
-    if num == 0 || num == 1
-        factorial = 1;
-    else
-        factorial = factorial * i;
+subjects = input('Enter how many subjects: ');
+gpa = 0;
+for i = 1:subjects
+    marks(i) = input('Enter your marks: ');
+    
+    if (marks(i) > 100 || marks(i) < 0) 
+        disp('Invalid marks')
+    elseif marks(i) >= 90
+        disp('A+')
+        gpa(i) = 4.0;
+    elseif marks(i) >= 80
+        disp('A')
+        gpa(i) = 3.0;
+    elseif marks(i) >= 70
+        disp('B')
+        gpa(i) = 2.0;
+    elseif marks(i) >= 60
+        disp('C')
+        gpa(i) = 1.5;
+    elseif marks(i) >= 50
+        disp('D')
+        gpa(i) = 1.0;
+    else 
+        disp('F')
+        gpa(i) = 0.0;
     end
 end
-disp("Factorial of 5 : " + factorial)
+
+GPA = mean(gpa);
+fprintf('\nYour GPA is : %.2f\n', GPA)
 
 
-5. Displaying Variables in Different Ways
--------------------------------------------
+2. Day of Week using switch
+----------------------------
 
-a) Using disp() with num2str()
+day = input('Day of the week: ');
 
-x = 10;
-disp(['The value of x is: ', num2str(x)])
-
-Purpose: Convert the numeric value of x to a string and display it.
-
-Explanation:
-
-num2str(x) converts the numeric value of x to a string.
-
-disp() displays the resulting string.
-
-b) Using Concatenation
-
-disp("The value of x is: " + x)
-
-Purpose: Display the value of x as part of a concatenated string.
-
-Explanation:
-
-The + operator concatenates the string "The value of x is: " with the value of x.
-
-c) Using fprintf()
-
-fprintf('The value of x is: %d', x)
-
-Purpose: Display the value of x using formatted output.
-
-Explanation:
-
-fprintf() is used for formatted text. %d is a placeholder for an integer (x in this case).
-
-d) Using sprintf()
-
-y = sprintf('The value of x is: %d', x);
-disp(y)
-
-Purpose: Store the formatted string in y and then display it.
-
-Explanation:
-
-sprintf() works like fprintf(), but instead of printing, it returns the formatted string, which is then displayed with disp().
-
-6. Getting User Input
-----------------------
-
-x = input('Enter the number:');
-disp(['You entered ', num2str(x)])
-
-name = input('Enter the string:','s');
-disp(['You entered ', name])
-
-
-7. While Loop
---------------
-
-num = 1;
-while(num < 10)
-    disp(num)
-    num = num + 1;
+switch day
+    case 1
+        disp('Monday')
+    case 2
+        disp('Tuesday')
+    case 3
+        disp('Wednesday')
+    case 4
+        disp('Thursday')
+    case 5
+        disp('Friday')
+    case 6
+        disp('Saturday')
+    case 7
+        disp('Sunday')
+    otherwise
+        disp('Invalid day')
 end
+
+
+03. Simple Calculator using switch
+-----------------------------------
+
+num1 = input('Enter number 1:');
+num2 = input('Enter number 2:');
+op = input('Enter the operator(+,-,*,/):','s');
+
+switch op
+    case '+'
+        result = num1 + num2;
+        fprintf('Result: %.2f\n', result)
+    case '-'
+        result = num1 - num2;
+        fprintf('Result: %.2f\n', result)
+    case '*'
+        result = num1 * num2;
+        fprintf('Result: %.2f\n', result)
+    case '/'
+        if num2 ~= 0
+            result = num1 / num2;
+            fprintf('Result: %.2f\n', result)
+        else
+            disp('Error: Division by zero.')
+        end
+    otherwise
+        disp('Invalid Operator')
+end
+
+4. Plotting Vectors
+-------------------
+
+x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]; % x vector
+y = [0, 0.84, 0.91, 0.14, -0.76, -0.96, -0.12, -0.34, -0.67]; % y vector
+
+figure;
+plot(x, y, '-o');
+title('Line plot: y vs x');
+xlabel('x');
+ylabel('y');
+
+
+
+
+
 
 
 
