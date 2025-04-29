@@ -1,102 +1,111 @@
 ```
-DAA-IT-2223P
-Design and Analysis of Algorithms Practical
+DAA Practical 
 Day 02
 
-1. String Concatenation
+1. For Loop (Basic Loop)
 ------------------------
 
-str1 = 'apple';
-str2 = 'banana';
-result = strcat(str1, str2);
-strcat() combines multiple strings end to end.
+for x = 1:10
+    disp(x)
+end
 
-This will give: 'applebanana'.
+2. For Loop with Step Size
+---------------------------
 
-marks = {'hello', 'world', 'sri'};
-result2 = strcat(marks{:});
-Concatenates all elements in a cell array into one string.
+for y = 1:2:15
+    disp(y)
+end
 
-Output: 'helloworldsri'.  
- 
-result3 = strjoin(marks, ':');
-Joins the array with a colon : separator.
+3. Sum of Numbers from 1 to 10
+-------------------------------
+sum = 0;
+for i = 1:10
+    sum = sum + i;
+end
+disp("sum: " + sum)
 
-Output: 'hello:world:sri'.
 
-2. String Comparison
---------------------
- 
-wstr1 = 'age';
-wstr2 = 'age';
-result4 = strcmp(wstr1, wstr2);
-strcmp() checks if the strings are exactly equal.
+4. Factorial Calculation
+-------------------------
 
-Output: 1 (true) if they are the same, otherwise 0.
+factorial = 1;
+num = 5;
+for i = 1:1:5
+    if num == 0 || num == 1
+        factorial = 1;
+    else
+        factorial = factorial * i;
+    end
+end
+disp("Factorial of 5 : " + factorial)
 
-3. Finding and Replacing Substrings
------------------------------------
- 
-stril = 'the cat sat on the mat';
-indic = strfind(stril, 'cat');
-strfind() returns the starting index of the substring 'cat'.
 
-Here, it will return 5.
+5. Displaying Variables in Different Ways
+-------------------------------------------
 
-old = 'cat';
-new = 'dog';
-replace = strrep(stril, old, new);
-strrep() replaces 'cat' with 'dog'.
+a) Using disp() with num2str()
 
-Output: 'the dog sat on the mat'.
+x = 10;
+disp(['The value of x is: ', num2str(x)])
 
-4. Splitting Strings
---------------------
- 
-inputstring = 'apple,banana,orange,grapes';
-substring = strsplit(inputstring, ',');
-strsplit() breaks a string into parts using a delimiter (here, a comma).
+Purpose: Convert the numeric value of x to a string and display it.
 
-Output: {'apple', 'banana', 'orange', 'grapes'}.
+Explanation:
 
-5. Case Conversion and Trimming
--------------------------------- 
+num2str(x) converts the numeric value of x to a string.
 
-st1 = 'appLE';
-lowercase = lower(st1);    % Converts to lowercase: 'apple'
-uppercase = upper(st1);    % Converts to uppercase: 'APPLE'
-  
- 
-trim = strtrim(' hello world ');
-strtrim() removes leading and trailing spaces.
+disp() displays the resulting string.
 
-6. Grading System Based on Marks
---------------------------------
+b) Using Concatenation
 
-marks = input('Enter the marks : ');
-Takes marks as input.
+disp("The value of x is: " + x)
 
-Checks the range and displays the corresponding grade (A+, A, B, C, D, F).
+Purpose: Display the value of x as part of a concatenated string.
 
-Also checks if the input is invalid (>100).
+Explanation:
 
-7. Largest of Three Numbers
-----------------------------
+The + operator concatenates the string "The value of x is: " with the value of x.
 
-num1 = input('Enter the number 1: ');
-num2 = input('Enter the number 2: ');
-num3 = input('Enter the number 3: ');
-Uses if-elseif to compare and print the largest number among three.
+c) Using fprintf()
 
-8. Vowel or Consonant Check
----------------------------- 
-  
-letter = input('Input the letter : ','s');
-Accepts a single character.
+fprintf('The value of x is: %d', x)
 
-switch-case checks if it is a vowel (a, e, i, o, u).
+Purpose: Display the value of x using formatted output.
 
-Otherwise, prints 'Consonant'.
+Explanation:
+
+fprintf() is used for formatted text. %d is a placeholder for an integer (x in this case).
+
+d) Using sprintf()
+
+y = sprintf('The value of x is: %d', x);
+disp(y)
+
+Purpose: Store the formatted string in y and then display it.
+
+Explanation:
+
+sprintf() works like fprintf(), but instead of printing, it returns the formatted string, which is then displayed with disp().
+
+6. Getting User Input
+----------------------
+
+x = input('Enter the number:');
+disp(['You entered ', num2str(x)])
+
+name = input('Enter the string:','s');
+disp(['You entered ', name])
+
+
+7. While Loop
+--------------
+
+num = 1;
+while(num < 10)
+    disp(num)
+    num = num + 1;
+end
+
 
 
 
