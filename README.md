@@ -4,7 +4,7 @@ Day 01
 
 Scalar Operations
 -----------------
-```matlab a = 5; b = 3; c = 8; ```
+<pre>```matlab a = 5; b = 3; c = 8; ```<pre>
 
 ```a + b;  % Addition, a - b;  % Subtraction, a * b;  % Multiplication, a / b;  % Division```
 
