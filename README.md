@@ -1,106 +1,208 @@
 ```
 DAA Practical 
-Day 04
+Day 05
 
-1. GPA Calculation using if-else
----------------------------------
+Activity 01
+Functional ATM simulation 
+-------------------------
 
-subjects = input('Enter how many subjects: ');
-gpa = 0;
-for i = 1:subjects
-    marks(i) = input('Enter your marks: ');
-    
-    if (marks(i) > 100 || marks(i) < 0) 
-        disp('Invalid marks')
-    elseif marks(i) >= 90
-        disp('A+')
-        gpa(i) = 4.0;
-    elseif marks(i) >= 80
-        disp('A')
-        gpa(i) = 3.0;
-    elseif marks(i) >= 70
-        disp('B')
-        gpa(i) = 2.0;
-    elseif marks(i) >= 60
-        disp('C')
-        gpa(i) = 1.5;
-    elseif marks(i) >= 50
-        disp('D')
-        gpa(i) = 1.0;
-    else 
-        disp('F')
-        gpa(i) = 0.0;
+
+
+balance = 1000;
+
+while true
+  
+    fprintf('\nATM Menu:\n');
+    fprintf('1. Deposit\n');
+    fprintf('2. Withdraw\n');
+    fprintf('3. Balance Inquiry\n');
+    fprintf('4. Exit\n');
+
+    choice = input('Please select an option (1-4): ');
+
+
+    switch choice
+        case 1 
+            amount = input('Enter amount to deposit: ');
+            if amount > 0
+                balance = balance + amount;
+                fprintf('Deposit successful! New balance: %.2f\n', balance);
+            else
+                fprintf('Invalid amount. Please enter a positive value.\n');
+            end
+            
+        case 2  
+            amount = input('Enter amount to withdraw: ');
+            if amount > 0
+                if amount <= balance
+                    balance = balance - amount;
+                    fprintf('Withdrawal successful! New balance: %.2f\n', balance);
+                else
+                    fprintf('Insufficient funds! Your balance is: %.2f\n', balance);
+                end
+            else
+                fprintf('Invalid amount. Please enter a positive value.\n');
+            end
+            
+        case 3  
+            fprintf('Your current balance is: %.2f\n', balance);
+            
+        case 4  
+            fprintf('Thank you for using the ATM. Have a great day!\n');
+            break;
+            
+        otherwise
+            fprintf('Invalid selection. Please choose a valid option (1-4).\n');
     end
 end
 
-GPA = mean(gpa);
-fprintf('\nYour GPA is : %.2f\n', GPA)
 
 
-2. Day of Week using switch
-----------------------------
+Activity 02
+------------
 
-day = input('Day of the week: ');
+marks = zeros(1, 5);
 
-switch day
-    case 1
-        disp('Monday')
-    case 2
-        disp('Tuesday')
-    case 3
-        disp('Wednesday')
-    case 4
-        disp('Thursday')
-    case 5
-        disp('Friday')
-    case 6
-        disp('Saturday')
-    case 7
-        disp('Sunday')
-    otherwise
-        disp('Invalid day')
+
+for i = 1:5
+    marks(i) = input(sprintf('Enter marks for student %d (out of 100): ', i));
+    
+   
+    if marks(i) >= 90 && marks(i) <= 100
+        grade = 'A';
+    elseif marks(i) >= 80 && marks(i) < 90
+        grade = 'B';
+    elseif marks(i) >= 70 && marks(i) < 80
+        grade = 'C';
+    elseif marks(i) >= 60 && marks(i) < 70
+        grade = 'D';
+    else
+        grade = 'F';
+    end
+    
+    fprintf('Student %d: Marks = %d, Grade = %s\n', i, marks(i), grade);
 end
 
 
-03. Simple Calculator using switch
------------------------------------
+while true
+    fprintf('\nMenu:\n');
+    fprintf('1. Show all marks as a bar chart\n');
+    fprintf('2. Show average marks\n');
+    fprintf('3. Exit\n');
+    
+    choice = input('Please select an option (1-3): ');
 
-num1 = input('Enter number 1:');
-num2 = input('Enter number 2:');
-op = input('Enter the operator(+,-,*,/):','s');
-
-switch op
-    case '+'
-        result = num1 + num2;
-        fprintf('Result: %.2f\n', result)
-    case '-'
-        result = num1 - num2;
-        fprintf('Result: %.2f\n', result)
-    case '*'
-        result = num1 * num2;
-        fprintf('Result: %.2f\n', result)
-    case '/'
-        if num2 ~= 0
-            result = num1 / num2;
-            fprintf('Result: %.2f\n', result)
-        else
-            disp('Error: Division by zero.')
-        end
-    otherwise
-        disp('Invalid Operator')
+    switch choice
+        case 1 
+            figure;
+            bar(marks);
+            xlabel('Student');
+            ylabel('Marks');
+            title('Student Marks');
+            
+        case 2 
+            avg_marks = mean(marks);
+            fprintf('Average Marks: %.2f\n', avg_marks);
+            
+        case 3
+            fprintf('Thank you!.. Goodbye!\n');
+            break;
+            
+        otherwise
+            fprintf('Invalid selection. Please choose a valid option (1-3).\n');
+    end
 end
 
-4. Plotting Vectors
--------------------
 
-x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]; % x vector
-y = [0, 0.84, 0.91, 0.14, -0.76, -0.96, -0.12, -0.34, -0.67]; % y vector
+Activity 03
+------------
 
-figure;
-plot(x, y, '-o');
-title('Line plot: y vs x');
-xlabel('x');
-ylabel('y');
+num_voters = input('Enter the total number of voters: ');
+
+
+votes = zeros(1, 4);
+
+
+for i = 1:num_voters
+    fprintf('\nVoting Menu:\n');
+    fprintf('1. Candidate A\n');
+    fprintf('2. Candidate B\n');
+    fprintf('3. Candidate C\n');
+    fprintf('4. Candidate D\n');
+    
+    choice = input(sprintf('Voter %d, enter your choice (1-4): ', i));
+    
+    switch choice
+        case {1, 2, 3, 4}
+            votes(choice) = votes(choice) + 1;
+        otherwise
+            fprintf('Invalid vote! Not counted.\n');
+    end
+end
+
+
+fprintf('\nElection Results:\n');
+fprintf('Candidate A: %d votes\n', votes(1));
+fprintf('Candidate B: %d votes\n', votes(2));
+fprintf('Candidate C: %d votes\n', votes(3));
+fprintf('Candidate D: %d votes\n', votes(4));
+
+
+[max_votes, winner_idx] = max(votes);
+if sum(votes == max_votes) > 1
+    fprintf('It is a tie!\n');
+else
+    fprintf('Winner: Candidate %c\n', char('A' + winner_idx - 1));
+end
+
+
+while true
+    fprintf('\nVisualization Menu:\n');
+    fprintf('1. Show Bar Chart of Votes\n');
+    fprintf('2. Show Pie Chart of Votes\n');
+    fprintf('3. Show Scatter Plot (creative visualization)\n');
+    fprintf('4. Exit\n');
+    
+    viz_choice = input('Enter your choice: ');
+    
+    switch viz_choice
+        case 1
+            figure;
+            bar(votes);
+            title('Vote Count Bar Chart');
+            xlabel('Candidates');
+            ylabel('Number of Votes');
+            xticklabels({'A', 'B', 'C', 'D'});
+            grid on;
+            
+        case 2
+            figure;
+            pie(votes, {'Candidate A', 'Candidate B', 'Candidate C', 'Candidate D'});
+            title('Vote Distribution Pie Chart');
+            
+        case 3
+            figure;
+            scatter(1:4, votes, 100, 'filled');
+            title('Scatter Plot of Votes');
+            xlabel('Candidates');
+            ylabel('Number of Votes');
+            xticks(1:4);
+            xticklabels({'A', 'B', 'C', 'D'});
+            grid on;
+            
+        case 4
+            fprintf('Exiting visualization menu.\n');
+            break;
+            
+        otherwise
+            fprintf('Invalid choice! Try again.\n');
+    end
+end
+
+
+
+
+
 
 
 
