@@ -1,5 +1,5 @@
 DAA-IT-2223P
-```Design and Analysis of Algorithms Practical
+Design and Analysis of Algorithms Practical
 Day 01
 
 Scalar Operations
