@@ -1,6 +1,6 @@
 ```
 DAA Practical 
-Day 03
+Day 04
 
 1. GPA Calculation using if-else
 ---------------------------------
