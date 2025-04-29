@@ -1,82 +1,104 @@
-```DAA-IT-2223P
+```
+DAA-IT-2223P
 Design and Analysis of Algorithms Practical
-Day 01
+Day 02
 
-Scalar Operations
------------------
-a = 5;
-b = 3;
-c = 8;
+1. String Concatenation
+------------------------
 
-a + b;  % Addition
-a - b;  % Subtraction
-a * b;  % Multiplication
-a / b;  % Division
+str1 = 'apple';
+str2 = 'banana';
+result = strcat(str1, str2);
+strcat() combines multiple strings end to end.
 
-Matrix and Array Operations
----------------------------
-A = [1234];  % A scalar array
+This will give: 'applebanana'.
 
-B = [2; 3; 4];  % Column vector
+marks = {'hello', 'world', 'sri'};
+result2 = strcat(marks{:});
+Concatenates all elements in a cell array into one string.
 
-C = [5 4 1; 1 3 4; 7 8 9];  % 3x3 matrix
+Output: 'helloworldsri'.  
+ 
+result3 = strjoin(marks, ':');
+Joins the array with a colon : separator.
 
-size(C);   % Size of matrix C
-numel(C);  % Number of elements in C
+Output: 'hello:world:sri'.
 
-sum(C, 1);  % Column-wise sum
-sum(C, 2);  % Row-wise sum
+2. String Comparison
+--------------------
+ 
+wstr1 = 'age';
+wstr2 = 'age';
+result4 = strcmp(wstr1, wstr2);
+strcmp() checks if the strings are exactly equal.
 
-min(C);    % Minimum element of C
-min(min(C));  % Minimum element of C (alternative method)
+Output: 1 (true) if they are the same, otherwise 0.
 
-max(C);    % Maximum element of C
-max(max(C));  % Maximum element of C (alternative method)
+3. Finding and Replacing Substrings
+-----------------------------------
+ 
+stril = 'the cat sat on the mat';
+indic = strfind(stril, 'cat');
+strfind() returns the starting index of the substring 'cat'.
 
-C(2);      % Accessing the second element of C (linear indexing)
-C(2, 1);   % Accessing the element at row 2, column 1 of C
-C(1, :);   % Accessing the first row of C
-C(:, 2);   % Accessing the second column of C
-C(1, end); % Accessing the last element of the first row of C
-C(end:-1:2);  % Accessing rows from the last to the second row in reverse order
+Here, it will return 5.
 
+old = 'cat';
+new = 'dog';
+replace = strrep(stril, old, new);
+strrep() replaces 'cat' with 'dog'.
 
-Matrix Operations
------------------
-P = [1 2 3 4; 5 6 7 8; 9 1 2 3; 8 3 4 5];
-Q = [4 3 2 1; 8 7 6 5; 3 2 1 9; 5 4 3 8];
+Output: 'the dog sat on the mat'.
 
-P + Q;  % Matrix addition
-P - Q;  % Matrix subtraction
-P * Q;  % Matrix multiplication
+4. Splitting Strings
+--------------------
+ 
+inputstring = 'apple,banana,orange,grapes';
+substring = strsplit(inputstring, ',');
+strsplit() breaks a string into parts using a delimiter (here, a comma).
 
-P + 5;  % Scalar addition to each element of P
-P .* Q; % Element-wise multiplication of matrices P and Q
+Output: {'apple', 'banana', 'orange', 'grapes'}.
 
-[P Q];  % Concatenating matrices P and Q horizontally
-[P; Q]; % Concatenating matrices P and Q vertically
+5. Case Conversion and Trimming
+-------------------------------- 
 
+st1 = 'appLE';
+lowercase = lower(st1);    % Converts to lowercase: 'apple'
+uppercase = upper(st1);    % Converts to uppercase: 'APPLE'
+  
+ 
+trim = strtrim(' hello world ');
+strtrim() removes leading and trailing spaces.
 
-Creating Matrices
------------------
-S = zeros(4, 3);  % 4x3 matrix of zeros
-T = ones(2, 3);   % 2x3 matrix of ones
-
-
-Conditional Statements and Loops
+6. Grading System Based on Marks
 --------------------------------
-num = 4;
-if num > 0
-    disp('The number is positive')
-else
-    disp('The number is negative')
-end
 
-i = 1;
-while i <= 5
-    disp(i)
-    i = i + 1;
-end
+marks = input('Enter the marks : ');
+Takes marks as input.
+
+Checks the range and displays the corresponding grade (A+, A, B, C, D, F).
+
+Also checks if the input is invalid (>100).
+
+7. Largest of Three Numbers
+----------------------------
+
+num1 = input('Enter the number 1: ');
+num2 = input('Enter the number 2: ');
+num3 = input('Enter the number 3: ');
+Uses if-elseif to compare and print the largest number among three.
+
+8. Vowel or Consonant Check
+---------------------------- 
+  
+letter = input('Input the letter : ','s');
+Accepts a single character.
+
+switch-case checks if it is a vowel (a, e, i, o, u).
+
+Otherwise, prints 'Consonant'.
+
+
 
 
 
