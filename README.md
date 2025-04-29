@@ -6,8 +6,6 @@ Activity 01
 Functional ATM simulation 
 -------------------------
 
-
-
 balance = 1000;
 
 while true
@@ -198,14 +196,6 @@ while true
             fprintf('Invalid choice! Try again.\n');
     end
 end
-
-
-
-
-
-
-
-
 
 
 
