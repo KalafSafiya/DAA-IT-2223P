@@ -1,7 +1,7 @@
 ```
 DAA-IT-2223P
 Design and Analysis of Algorithms Practical
-Day 02
+Day 03
 
 1. String Concatenation
 ------------------------
