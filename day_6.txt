@@ -1,0 +1,80 @@
+      % Time Complexity
+
+n=1000;
+tic; %starting time
+for i=1:n
+    disp(i)
+end
+
+elapsedTime=toc; %end time end store elapsedTime
+
+fprintf('Elapsed time:%fseconds\n',elapsedTime);
+
+n=10    Elapsed time:0.001493seconds
+n=100   Elapsed time:0.002880seconds
+n=1000  Elapsed time:0.027589seconds
+
+
+n=5;
+tic;
+if n==5
+    disp('n is 5')
+else
+    disp('n is not 5')
+end
+elapsedTime=toc;
+fprintf('Elapsed time:%fseconds\n',elapsedTime);
+Elapsed time:0.014164seconds
+
+              % Linear search
+arr=[3,5,7,9,11,13];
+tar=9;
+n=length(arr);
+found=false;
+
+tic;
+for i=1:1:n
+ if arr(i)==tar
+     found=true;
+     break;    
+ end
+end
+
+ if found
+        disp([ 'index of target elemet is:',num2str(i)])
+ else
+     disp('element is not found')
+ end
+
+ elapsedTime=toc;
+ fprintf('Elapsed time:%fseconds\n',elapsedTime);
+Elapsed time:0.000758seconds
+
+ 
+   % Binary Search
+arr = [3,6,8,12,14,17,25,29,31,36,42,47,53,55,62]; % Sorted array
+tar = 42; % Target element
+low = 1;
+high = length(arr);
+found = false;
+
+tic; % Start timing
+while low <= high
+    mid = floor((low + high) / 2); % Calculate middle index
+    
+    if arr(mid) == tar
+        fprintf('Index of target element: %d\n', mid);
+        found = true;
+        break;
+    elseif arr(mid) < tar
+        low = mid + 1; % Move to the right half
+    else
+        high = mid - 1; % Move to the left half
+    end
+end
+
+if ~found
+    disp('Element not found');
+end
+elapsedTime = toc; % Stop timing
+fprintf('Elapsed time: %f seconds\n', elapsedTime);
