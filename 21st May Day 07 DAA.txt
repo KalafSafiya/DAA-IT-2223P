@@ -1,0 +1,71 @@
+Create an array with 1000 numbers
+use tic/toc to measure time for:
+	Linear Search
+	Binary Search (After sorting)
+Compare Results
+
+
+clc; clear; close all;
+
+% Generate an array with 1000 random numbers
+array = randi([1, 10000], 1, 1000);
+target = array(randi([1, 1000])); % Select a random target from the array
+
+% Linear Search
+tic;
+found = false;
+for i = 1:length(array)
+    if array(i) == target
+        found = true;
+        break;
+    end
+end
+linearSearchTime = toc;
+
+% Binary Search (After sorting)
+sortedArray = sort(array); % Sort the array first
+tic;
+low = 1;
+high = length(sortedArray);
+found = false;
+while low <= high
+    mid = floor((low + high) / 2);
+    if sortedArray(mid) == target
+        found = true;
+        break;
+    elseif sortedArray(mid) < target
+        low = mid + 1;
+    else
+        high = mid - 1;
+    end
+end
+binarySearchTime = toc;
+
+% Display results
+fprintf('Linear Search Time: %.6f seconds\n', linearSearchTime);
+fprintf('Binary Search Time: %.6f seconds\n', binarySearchTime);
+
+
+
+//SELECTION SORT
+
+arr = [64, 25, 12, 22, 11];
+n = length(arr);
+
+for i = 1:n-1
+    minIndex = i;
+    for j = i+1:n
+        if arr(j) < arr(minIndex)
+            minIndex = j;
+        end
+    end
+    % Swap elements
+    temp = arr(i);
+    arr(i) = arr(minIndex);
+    arr(minIndex) = temp;
+end
+
+disp('Sorted array:');
+disp(arr);
+
+
