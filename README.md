@@ -1,54 +1,54 @@
-## MATLAB Practical: Time Complexity and Search Algorithms
+## MATLAB Practical: Searching and Sorting Algorithms Performance
 
 ### Overview
-This practical demonstrates the measurement of execution time in MATLAB for basic operations and two search algorithms: **Linear Search** and **Binary Search**. It highlights how time complexity affects the performance of these algorithms.
+This practical covers two important algorithmic concepts in MATLAB: **searching** and **sorting**. It demonstrates the implementation of Linear Search and Binary Search on a large array, compares their execution times, and implements Selection Sort to sort an array.
 
 ---
 
 ### Sections
 
-1. **Measuring Execution Time for a Simple Loop**
-   - Runs a loop from 1 to `n` and displays each number.
-   - Measures and prints elapsed time using `tic` and `toc`.
-   - Shows how execution time increases with larger `n`.
+1. **Searching Algorithms on a Random Array**
+   - An array of 1000 random integers is generated.
+   - A target element is randomly selected from this array.
+   
+   - **Linear Search:**
+     - Iterates through the array sequentially to find the target.
+     - Measures the time taken to locate the target.
+     - Time complexity: O(n).
+   
+   - **Binary Search:**
+     - The array is first sorted using MATLAB’s built-in `sort` function.
+     - Uses the divide-and-conquer approach to find the target efficiently.
+     - Measures the time taken to locate the target.
+     - Time complexity: O(log n).
 
-2. **Conditional Statement Execution Time**
-   - Checks if a variable equals a certain value.
-   - Measures how quickly a simple conditional executes.
+   - The execution times of both search methods are printed and compared.
+   - Note: Although binary search is theoretically faster, the time to sort the array beforehand may impact overall timing.
 
-3. **Linear Search**
-   - Searches for a target value in an unsorted array by checking each element sequentially.
-   - Stops when the target is found or the array ends.
-   - Prints the index of the target element if found.
-   - Measures the elapsed time taken for the search.
-   - Time complexity: O(n) — grows linearly with the array size.
+---
 
-4. **Binary Search**
-   - Searches for a target value in a **sorted** array using the divide-and-conquer approach.
-   - Repeatedly divides the search interval in half until the target is found or the interval is empty.
-   - Prints the index of the target element if found.
-   - Measures the elapsed time taken for the search.
-   - Time complexity: O(log n) — much faster for large sorted arrays compared to linear search.
+2. **Selection Sort Algorithm**
+   - Implements the Selection Sort algorithm on a small example array.
+   - Algorithm finds the minimum element from the unsorted portion and swaps it with the first unsorted element.
+   - Continues until the entire array is sorted.
+   - Selection Sort time complexity: O(n²).
+   - Prints the sorted array after completion.
 
 ---
 
 ### Key Learnings
-
-- **Execution time measurement** in MATLAB is performed using `tic` and `toc`.
-- **Linear search** is simple but inefficient for large arrays.
-- **Binary search** requires sorted data but is significantly faster.
-- The practical demonstrates how algorithm choice affects performance and execution time.
-
----
-
-### Sample Output Times
-
-| Operation               | Sample Elapsed Time (seconds) |
-|------------------------|-------------------------------|
-| Loop for n=1000         | ~0.0276                       |
-| Linear Search (target=9)| ~0.0008                       |
-| Binary Search (target=42)| ~0.0001                      |
+- **Linear Search** is simple but inefficient for large data.
+- **Binary Search** is much faster on sorted data but requires the initial sorting step.
+- **Selection Sort** is a straightforward sorting algorithm useful for educational purposes but inefficient for large arrays.
+- Practical demonstrates measuring execution time for different algorithms using `tic` and `toc`.
 
 ---
 
-This practical helps in understanding both the theoretical and practical aspects of algorithm time complexity and performance measurement.
+### Sample Output
+- Linear Search Time: ~0.000626 seconds
+- Binary Search Time: ~0.001311 seconds (excluding sorting time)
+- Sorted array after Selection Sort: `[11 12 22 25 64]`
+
+---
+
+This practical reinforces algorithmic efficiency concepts and practical timing measurements in MATLAB.
