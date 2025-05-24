@@ -1,0 +1,74 @@
+DAA Practical
+Day 06
+12/05/2025
+---------------
+
+//Time Complexity
+
+Practical 01
+------------
+n=10;
+ tic;
+
+for i=1:n
+disp(i)
+end
+
+elapsedTime=toc;
+fprintf('Elapsed Time: %fseconds/n',elapsedTime);
+
+
+//Time Complexity Linear Search
+Practical 02
+------------
+
+arr=[3,5,7,9,11,13];
+target=9;
+n=length(arr);
+found=false;
+
+tic;
+for i=1:n
+if(arr(i)==target)
+    found=true;
+    break;   
+end
+end
+
+elapsedTime=toc;
+
+if(found)
+    fprintf('Element %d is found at index %d\n',arr(i),i);
+else
+    disp('Element not Found');
+end
+
+fprintf('Elapsed Time: %fseconds/n',elapsedTime);
+
+
+arr=[3,6,8,12,14,17,25,29,31,36,42,47,53,55,62];
+target=42;
+n=length(arr);
+low=1;
+high=n;
+
+//Binary Search
+Practical 03
+------------
+
+while(low<=high)
+    mid=floor((low+high)/2);
+if(target==arr(mid))
+    fprintf('Element found at index %d\n',mid)
+    found = true;
+    break;
+elseif(target>arr(mid))
+        low=mid+1;
+else
+    high=mid-1;
+end
+end
+
+if(~found)
+    disp('Element not found')
+end
