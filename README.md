@@ -1,54 +1,36 @@
-## MATLAB Practical: Searching and Sorting Algorithms Performance
+# Sorting Algorithms: Bubble Sort & Insertion Sort in MATLAB
 
-### Overview
-This practical covers two important algorithmic concepts in MATLAB: **searching** and **sorting**. It demonstrates the implementation of Linear Search and Binary Search on a large array, compares their execution times, and implements Selection Sort to sort an array.
-
----
-
-### Sections
-
-1. **Searching Algorithms on a Random Array**
-   - An array of 1000 random integers is generated.
-   - A target element is randomly selected from this array.
-   
-   - **Linear Search:**
-     - Iterates through the array sequentially to find the target.
-     - Measures the time taken to locate the target.
-     - Time complexity: O(n).
-   
-   - **Binary Search:**
-     - The array is first sorted using MATLAB’s built-in `sort` function.
-     - Uses the divide-and-conquer approach to find the target efficiently.
-     - Measures the time taken to locate the target.
-     - Time complexity: O(log n).
-
-   - The execution times of both search methods are printed and compared.
-   - Note: Although binary search is theoretically faster, the time to sort the array beforehand may impact overall timing.
+This README explains the functionality and working of two basic sorting algorithms: Bubble Sort and Insertion Sort, along with sample outputs.
 
 ---
 
-2. **Selection Sort Algorithm**
-   - Implements the Selection Sort algorithm on a small example array.
-   - Algorithm finds the minimum element from the unsorted portion and swaps it with the first unsorted element.
-   - Continues until the entire array is sorted.
-   - Selection Sort time complexity: O(n²).
-   - Prints the sorted array after completion.
+## Bubble Sort
+
+### Functionality:
+Bubble Sort is a simple, comparison-based algorithm. It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process continues until the entire array is sorted.
+
+### How It Works:
+- Start at the beginning of the array.
+- Compare each pair of adjacent elements.
+- Swap them if they are in the wrong order.
+- Repeat this for all elements, reducing the range each time (since the largest elements move to the end).
+- Continue until no more swaps are needed, indicating the array is sorted.
 
 ---
 
-### Key Learnings
-- **Linear Search** is simple but inefficient for large data.
-- **Binary Search** is much faster on sorted data but requires the initial sorting step.
-- **Selection Sort** is a straightforward sorting algorithm useful for educational purposes but inefficient for large arrays.
-- Practical demonstrates measuring execution time for different algorithms using `tic` and `toc`.
+## Insertion Sort
+
+### Functionality:
+Insertion Sort is a simple sorting algorithm that builds the sorted array one item at a time. It is efficient for small datasets and works similarly to how people sort playing cards in their hands.
+
+### How It Works:
+- Start from the second element in the array.
+- Compare it with elements before it.
+- Shift larger elements one position to the right.
+- Insert the current element into its correct position.
+- Repeat this process for all elements in the array.
+
+
 
 ---
 
-### Sample Output
-- Linear Search Time: ~0.000626 seconds
-- Binary Search Time: ~0.001311 seconds (excluding sorting time)
-- Sorted array after Selection Sort: `[11 12 22 25 64]`
-
----
-
-This practical reinforces algorithmic efficiency concepts and practical timing measurements in MATLAB.
