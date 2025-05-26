@@ -1,0 +1,45 @@
+function sortedArray = bubbleSort(arr)
+    n = length(arr);
+    for i = 1:n-1
+        for j = 1:n-i
+            if arr(j) > arr(j+1)
+                % Swap elements
+                temp = arr(j);
+                arr(j) = arr(j+1);
+                arr(j+1) = temp;
+            end
+        end
+    end
+    sortedArray = arr;
+end
+
+arr = [64, 34, 25, 12, 22, 11, 90];
+sortedArr = bubbleSort(arr);
+disp(sortedArr);
+
+
+Output:
+>> bubbleSort
+    11    12    22    25    34    64    90
+	
+
+j
+n = length(arr);
+
+for i = 2:n
+    key = arr(i);
+    j = i - 1;
+    
+    while j >= 1 && arr(j) > key
+        arr(j + 1) = arr(j);
+        j = j - 1;
+    end
+    
+    arr(j + 1) = key;
+end
+
+disp(arr); 
+
+>> InsertionSort
+    11    12    22    25    34    64    90
+
